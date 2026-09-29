@@ -1,3 +1,4 @@
+
 workflows:
   default-workflow:
     name: LCRH MedTrack
@@ -8,9 +9,10 @@ workflows:
       xcode: latest
       cocoapods: default
     scripts:
-      - name: Create Android folder
+      - name: Fix project and create Android folder
         script: |
-          flutter create . --platforms=android --project-name lcrh_medtrack
+          rm -rf android
+          flutter create . --org com.lcrh --project-name medtrack --platforms=android
       - name: Get packages
         script: flutter pub get
       - name: Build APK
